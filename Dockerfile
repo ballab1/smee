@@ -14,6 +14,10 @@ COPY build Dockerfile /tmp/
 ENV DEBUG_TRACE=0
 
 
+ARG SMEE_USER=smee
+ARG SMEE_HOME=/usr/local/smee
+
+
 # build content
 RUN set -o verbose \
     && chmod u+rwx /tmp/build.sh \
