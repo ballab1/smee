@@ -1,4 +1,4 @@
-ARG FROM_BASE=${DOCKER_REGISTRY:-s2.ubuntu.home:5000/}alpine:${OS_VERSION:-3.12.0} 
+ARG FROM_BASE=${DOCKER_REGISTRY:-s2.ubuntu.home:5000/}alpine:${OS_VERSION:-3.12.4} 
 FROM $FROM_BASE
 
 # name and version of this docker image
@@ -21,7 +21,7 @@ ARG SMEE_HOME=/usr/local/smee
 # build content
 RUN set -o verbose \
     && chmod u+rwx /tmp/build.sh \
-    && /tmp/build.sh "$CONTAINER_NAME" "$DEBUG_TRACE" \
+    && /tmp/build.sh "$CONTAINER_NAME" "$DEBUG_TRACE" "$TZ" \
     && ([ "$DEBUG_TRACE" != 0 ] || rm -rf /tmp/*)
 
 
