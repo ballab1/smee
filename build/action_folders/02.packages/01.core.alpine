@@ -1,5 +1,5 @@
 # core Packages
 
 declare -a PKGS=( nodejs
-                  nodejs-npm
+                  npm
                  )
