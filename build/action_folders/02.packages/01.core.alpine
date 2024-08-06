@@ -1,5 +1,7 @@
 # core Packages
 
-declare -a PKGS=( nodejs
+declare -a PKGS=( libuv
+                  nghttp2-libs
+                  nodejs
                   npm
                  )
