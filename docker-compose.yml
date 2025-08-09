@@ -8,9 +8,9 @@ services:
             args:
                 CBF_VERSION: "${CBF_VERSION}"
                 CONTAINER_NAME: smee
-                FROM_BASE: ${DOCKER_REGISTRY:-s2.ubuntu.home:5000/}${CONTAINER_OS:-alpine}/base_container:${BASE_TAG:-latest}
+                FROM_BASE: ${DOCKER_REGISTRY:-/}${CONTAINER_OS:-alpine}/base_container:${BASE_TAG:-latest}
             cache_from:
-                - ${DOCKER_REGISTRY:-s2.ubuntu.home:5000/}${CONTAINER_OS:-alpine}/base_container:${BASE_TAG:-latest}
+                - ${DOCKER_REGISTRY:-/}${CONTAINER_OS:-alpine}/base_container:${BASE_TAG:-latest}
             context: .
             dockerfile: Dockerfile
             labels:
@@ -27,7 +27,7 @@ services:
         environment:
             DEBUG_TRACE: ${DEBUG_TRACE:-0}
         hostname: smee
-        image: ${DOCKER_REGISTRY:-s2.ubuntu.home:5000/}${CONTAINER_OS:-alpine}/smee:${CONTAINER_TAG:-latest}
+        image: ${DOCKER_REGISTRY:-/}${CONTAINER_OS:-alpine}/smee:${CONTAINER_TAG:-latest}
         logging:
             driver: json-file
             options:
