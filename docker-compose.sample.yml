@@ -12,10 +12,10 @@ services:
             args:
                 CBF_VERSION: ${CBF_VERSION:-}
                 CONTAINER_NAME: smee
-                FROM_BASE: ${DOCKER_REGISTRY:-ubuntu-s2:5000/}${CONTAINER_OS:-alpine}/base_container:${BASE_TAG:-latest}
+                FROM_BASE: ${DOCKER_REGISTRY:-}${CONTAINER_OS:-alpine}/base_container:${BASE_TAG:-latest}
                 SMEE _USER: smee
             cache_from:
-                - ${DOCKER_REGISTRY:-ubuntu-s2:5000/}${CONTAINER_OS:-alpine}/base_container:${BASE_TAG:-latest}
+                - ${DOCKER_REGISTRY:-}${CONTAINER_OS:-alpine}/base_container:${BASE_TAG:-latest}
             context: .
             dockerfile: Dockerfile
             labels:
@@ -36,7 +36,7 @@ services:
             SMEE_PATH: /jenkins/github-webhook/
             SMEE_TARGET: http://localhost/
         hostname: smee
-        image: ${DOCKER_REGISTRY:-ubuntu-s2:5000/}${CONTAINER_OS:-alpine}/smee:${CONTAINER_TAG:-latest}
+        image: ${DOCKER_REGISTRY:-}${CONTAINER_OS:-alpine}/smee:${CONTAINER_TAG:-latest}
 # limit size of logs @runtime so that we do not run out of space
         logging:
             driver: json-file
